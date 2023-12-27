@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="action">
+   <a class="btn btn-primary" href="{% url 'creare_pdf' %}">Create PDF</a>
+</div>
+<div class="modal-body">
+    <div class="content container-fluid">                    
+        <div class="row">
+           <div class="col-sm-12">
+              <div class="card card-table">
+                 <div class="card-body">
+                    <div class="table-responsive">
+                     
+                       {% for t in tamasuk %}
+                       <p> kjgs'gs'agagagakklj<b> {{t.name}}</b> ml'slfsa/fdsakl<b> {{t.old_district}} </b>smlanf;sfnsalkf----------
+                        mn;lsfnsa/lfsal/------------mnalfas/k----------------kl;alsfsafsda------------- </p>
+                       {% endfor %}
+            
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+{% endblock content %}

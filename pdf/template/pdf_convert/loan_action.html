@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="modal-body">
+    <div class="content container-fluid">                    
+        <div class="row">
+           <div class="col-sm-12">
+              <div class="card card-table">
+                 <div class="card-body">
+                    <div class="table-responsive">
+                       <table id="table_id" class="table table-hover table-center mb-0">
+                        {% include 'includes/messages.html' %}
+                          <thead>
+                             <tr>
+                                <th>Loan Id</th>
+                                <th>Client Name</th>
+                                <th>Porpose</th>
+                                <th>Loan Amount</th>
+    
+                                <th class="text-right">Status</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            
+                            {% for ls in loan_status %}                          
+                             <tr>
+                                <td>{{ls.loan_no}}</td>
+                                <td>{{ls.name}}</td>
+                                <td>{{ls.propose}}</td>
+                                <td>{{ls.loan_amount}}</td>
+                                <td class="text-right">
+                                   <div class="actions">
+                                     
+                                     {% if ls.status == 0 %}
+                                     <span class="badge badge-warning" style="height: 20px;">Pendding</span>
+                                     {% elif ls.status == 1 %}
+                                     <span class="badge badge-success" style="height: 20px;">Approved</span>
+                                     <a href="{% url 'tamasuk' ls.id %}" ><span class="badge badge-success" style="height: 20px;">View Tamasuk</span>
+                                     {% else %}
+                                     <span class="badge badge-danger" style="height: 20px;">Rejected</span>
+                                     {% endif %}
+                                       
+                                   </div>
+                                </td>
+                             </tr>
+                             {% endfor %}
+                          </tbody>
+                       </table>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+{% endblock content %}
+    

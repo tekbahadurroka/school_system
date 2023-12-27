@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="page-header">
+       <div class="row">
+          <div class="col-sm-12">
+             {% comment %} <h3 class="page-title"><strong>Welcome </strong>&nbsp;<span>{{user.first_name}} {{user.last_name}}</span>&nbsp;!</h3> {% endcomment %}
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item active">Dashboard</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-xl-3 col-sm-6 col-12 d-flex">
+          <div class="card bg-one w-100">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-user-graduate"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3>{{student_count}}</h3>
+                      <h6>Students</h6>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12 d-flex">
+          <div class="card bg-two w-100">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-chalkboard-teacher"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3>{{staff_count}}</h3>
+                      <h6>Staffs</h6>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12 d-flex">
+          <div class="card bg-three w-100">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-graduation-cap"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3>{{course_count}}</h3>
+                      <h6>Course</h6>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12 d-flex">
+          <div class="card bg-four w-100">
+             <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                   <div class="db-icon">
+                      <i class="fas fa-book"></i>
+                   </div>
+                   <div class="db-info">
+                      <h3>{{subject_count}}</h3>
+                      <h6>Subjects</h6>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-12 col-lg-6">
+          <div class="card card-chart">
+             <div class="card-header">
+                <div class="row align-items-center">
+                   <div class="col-6">
+                      <h5 class="card-title">All Data</h5>
+                   </div>
+                </div>
+             </div>
+             <div class="card-body">
+                <div id="all_details"></div>
+             </div>
+          </div>
+       </div>
+       <div class="col-md-12 col-lg-6">
+          <div class="card card-chart">
+             <div class="card-header">
+                <div class="row align-items-center">
+                   <div class="col-6">
+                      <h5 class="card-title">Number of Students</h5>
+                   </div>
+                   
+                </div>
+             </div>
+             <div class="card-body">
+                <div id="stud_gender"></div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-6 d-flex">
+          <div class="card flex-fill">
+             <div class="card-header">
+                <h5 class="card-title">Details of Students</h5>
+             </div>
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center">
+                      <thead class="thead-light">               
+                         <tr>
+                            <th>ID</th>
+                            <th>Name of Student</th>
+                            <th class="text-center">Adress</th>
+                            <th class="text-center">Phone Number</th>
+                           
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for s in student %} 
+                         <tr>
+                            <td class="text-nowrap">
+                               <div>{{s.admin.id}}</div>
+                            </td>
+                            <td class="text-nowrap">{{s.admin.first_name}} {{s.admin.last_name}}</td>
+                            <td class="text-center">{{s.address}}</td>
+                            <td class="text-center">{{s.mobile_no}}</td>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="col-md-6 d-flex">
+          <div class="card flex-fill">
+             <div class="card-header">
+                <h5 class="card-title">Student Activity</h5>
+             </div>
+             
+             
+             <div class="card-body">
+               {% for a in student %}
+                <ul class="activity-feed">
+                   <li class="feed-item">
+                      <div class="feed-date">{{a.create_date}}</div>
+                      <span class="feed-text"><a>{{a.admin.first_name}} {{a.admin.last_name}}</a> won 1st place in <a>"{{a.course_id}}"</a></span>
+                   </li>
+                </ul>
+                {% endfor %}
+             </div>
+             
+          </div>
+       </div>
+    </div>
+    {% comment %} <div class="row">
+       <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card flex-fill fb sm-box">
+             <i class="fab fa-facebook"></i>
+             <h6>50,095</h6>
+             <p>Likes</p>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card flex-fill twitter sm-box">
+             <i class="fab fa-twitter"></i>
+             <h6>48,596</h6>
+             <p>Follows</p>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card flex-fill insta sm-box">
+             <i class="fab fa-instagram"></i>
+             <h6>52,085</h6>
+             <p>Follows</p>
+          </div>
+       </div>
+       <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card flex-fill linkedin sm-box">
+             <i class="fab fa-linkedin-in"></i>
+             <h6>69,050</h6>
+             <p>Follows</p>
+          </div>
+       </div> {% endcomment %}
+    </div>
+ 
+   {% include 'includes/chart.html' %} 
+{% endblock content %}

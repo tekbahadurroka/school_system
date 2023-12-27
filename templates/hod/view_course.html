@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Course Views</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Course view</li>
+             </ul>
+          </div>
+          <div class="col-auto text-right float-right ml-auto">
+             <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+             <a href="{% url 'add_course' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center mb-0 datatable">
+                     
+                     {% include 'includes/messages.html' %}
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Course Name</th>
+                            <th>Create Date</th>
+                            <th>Update Date</th>
+                            
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        
+                        {% for c in course %}                          
+                         <tr>
+                            <td>{{c.id}}</td>
+                            <td>{{c.name}}</td>
+                            <td>{{c.create_date}}</td>
+                            <td>{{c.update_date}}</td>
+
+                            <td class="text-right">
+                               <div class="actions">
+                                  <a href="{% url 'edit_course' c.id %}" class="btn btn-sm bg-success-light mr-2">
+                                  <i class="fas fa-pen"></i>
+                                  </a>
+                                  <a href="{% url 'delete_course' c.id %}" class="btn btn-sm bg-danger-light">
+                                  <i class="fas fa-trash"></i>
+                                  </a>
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+    
+{% endblock content %}

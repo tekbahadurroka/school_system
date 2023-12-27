@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Students Views</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Students view</li>
+             </ul>
+          </div>
+          <div class="col-auto text-right float-right ml-auto">
+             <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+             <a href="{% url 'add_student' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table id="table_id" class="table table-hover table-center mb-0">
+                     {% include 'includes/messages.html' %}
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>DOB</th>
+                            <th>Gender</th>
+                            <th>Father Name</th>
+                            <th>Mother Name</th>
+                            <th>Religion</th>
+                            <th>Mobile No</th>
+                            <th>Address</th>
+                            <th>Couser</th>
+                            <th>Section</th>
+                            <th>Session Start</th>
+                            <th>Session End</th>
+                            <th>Create Date</th>
+                            <th>Update Date</th>
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        
+                        {% for v in student %}                          
+                         <tr>
+                            <td>{{v.id}}</td>
+                            <td>
+                               <h2 class="table-avatar">
+                                  <a href="{% url 'edit_student' v.id %}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/{{v.admin.profile_pic}}" alt="User Image"></a>
+                                  <a href="{% url 'edit_student' v.id %}">{{v.admin.first_name}} {{v.admin.last_name}}</a>
+                               </h2>
+                            </td>
+                            <td>{{v.admin.email}}</td>
+                            <td>{{v.admin.username}}</td>
+                            <td>{{v.dob}}</td>
+                            <td>{{v.gender}}</td>
+                            <td>{{v.father_name}}</td>
+                            <td>{{v.mother_name}}</td>
+                            <td>{{v.religion}}</td>
+                            <td>{{v.mobile_no}}</td>
+                            <td>{{v.address}}</td>
+                            <td>{{v.course_id}}</td>
+                            <td>{{v.section_id}}</td>
+                            <td>{{v.session_id.session_start}}</td>
+                            <td>{{v.session_id.session_end}}</td>
+                            <td>{{v.create_date}}</td>
+                            <td>{{v.update_date}}</td>
+                            <td class="text-right">
+                               <div class="actions">
+                                  <a href="{% url 'edit_student' v.id %}" class="btn btn-sm bg-success-light mr-2">
+                                  <i class="fas fa-pen"></i>
+                                  </a>
+                                  <a href="{% url 'delete_student' v.admin.id %}" class="btn btn-sm bg-danger-light">
+                                  <i class="fas fa-trash"></i>
+                                  </a>
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+    
+{% endblock content %}
+    

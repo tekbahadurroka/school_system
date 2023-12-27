@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Staff Leave Views</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Staff Leave Views</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center mb-0 datatable">
+                     
+                     {% include 'includes/messages.html' %}
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Staff Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Leave Days</th>
+                            <th>Remarks</th>
+                            
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        
+                        {% for l in staff_leave %}                          
+                         <tr>
+                            <td>{{l.id}}</td>
+                            <td>{{l.staff_id.admin.first_name}} {{l.staff_id.admin.last_name}}</td>
+                            <td>{{l.date}}</td>
+                            <td>{{l.date_end}}</td>
+                            <td>{{l.Days}}</td>
+                            <td>{{l.message}}</td>
+
+                            <td class="text-right">
+                               <div class="actions">
+                                
+                                {% if l.status == 0 %}
+                                <a href="{% url 'staff_leave_approve' l.id %}" class="btn btn-success">Approve</a>
+                                <a href="{% url 'staff_leave_reject' l.id %}" class="btn btn-danger">Reject</a>  
+                                {% elif l.status == 1 %}
+                                <button class="btn btn-success" disabled="disabled">Approved</button>
+                                {% else %}
+                                <button class="btn btn-danger" disabled="disabled">Rejected</button> 
+                                {% endif %}
+                                    
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+    
+{% endblock content %}

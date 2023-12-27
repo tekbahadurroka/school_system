@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Loan Demand From</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="teachers.html">Loan Demand</a></li>
+                <li class="breadcrumb-item active">Loan Demand From</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+      
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                         <h5 class="form-title"><span>Individual Details</span></h5>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Member ID</label>
+                            <input type="text" class="form-control" name="client_id">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Name of Member</label>
+                            <input type="text" class="form-control" name="client_name">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Citizenship No</label>
+                           <input type="text" class="form-control" name="ctizenship_no">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Issue Date</label>
+                           <input type="date" class="form-control" name="issue_date">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Issue Place</label>
+                           <input type="text" class="form-control" name="issue_place">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Age</label>
+                           <input type="text" class="form-control" name="client_age">
+                        </div>
+                     </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Grend Father's Name</label>
+                            <input type="text" class="form-control" name="grend_name">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Father/Husband's Name</label>
+                            <input type="text" class="form-control" name="husband_name">
+                         </div>
+                      </div>
+                      
+                      <div class="col-12">
+                        <h5 class="form-title"><span>Permanent Address</span></h5>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Village</label>
+                           <input type="text" class="form-control" name="village">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Worda No</label>
+                           <input type="text" class="form-control" name="worda">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Municipilaty/Rural Municipilaty</label>
+                           <input type="text" class="form-control" name="address">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>District</label>
+                           <input type="text" class="form-control" name="district">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Zone</label>
+                           <input type="text" class="form-control" name="province">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Country</label>
+                           <input type="text" class="form-control" name="country">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <h5 class="form-title"><span>Temporary Address</span></h5>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Village</label>
+                           <input type="text" class="form-control" name="tvillage">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Worda No</label>
+                           <input type="text" class="form-control" name="tworda">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Municipilaty/Rural Municipilaty</label>
+                           <input type="text" class="form-control" name="taddress">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>District</label>
+                           <input type="text" class="form-control" name="tdistrict">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Province</label>
+                           <input type="text" class="form-control" name="tprovince">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Country</label>
+                           <input type="text" class="form-control" name="tcountry">
+                        </div>
+                     </div>
+
+                      <div class="col-12">
+                         <h5 class="form-title"><span>Loan Details</span></h5>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Propose</label>
+                            <input type="text" class="form-control" name="tpropose">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Loan Amount</label>
+                            <input type="text" class="form-control" name="loan_amount">
+                         </div>
+                      </div>
+                      <div class="col-12">
+                         <div class="form-group">
+                            <label>Loan in word</label>
+                            <input type="text" class="form-control" name="loan_word">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Maturity Date</label>
+                           <input type="date" class="form-control" name="maturity_date">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Document</label>
+                           <input type="file" class="form-control" name="document">
+                        </div>
+                     </div>
+                      
+                      <div class="col-12">
+                         <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!--Modal for Loan Status-->
+ <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Loan Status</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+             <div class="modal-body">
+                 <div class="content container-fluid">                    
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="card card-table">
+                              <div class="card-body">
+                                 <div class="table-responsive">
+                                    <table id="table_id" class="table table-hover table-center mb-0">
+                                     {% include 'includes/messages.html' %}
+                                       <thead>
+                                          <tr>
+                                             <th>Loan Id</th>
+                                             <th>Client Name</th>
+                                             <th>Porpose</th>
+                                             <th>Loan Amount</th>
+                 
+                                             <th class="text-right">Status</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                         
+                                         {% for ls in data %}                          
+                                          <tr>
+                                             <td>{{ls.loan_no}}</td>
+                                             <td>{{ls.name}}</td>
+                                             <td>{{ls.propose}}</td>
+                                             <td>{{ls.loan_amount}}</td>
+                                             <td class="text-right">
+                                                <div class="actions">
+                                                  
+                                                  {% if l.status == 0 %}
+                                                  <span class="badge badge-warning" style="height: 20px;">Pendding</span>
+                                                  {% elif l.status == 1 %}
+                                                  <span class="badge badge-success" style="height: 20px;">Approved</span>
+                                                  {% else %}
+                                                  <span class="badge badge-danger" style="height: 20px;">Rejected</span>
+                                                  {% endif %}
+                                                    
+                                                </div>
+                                             </td>
+                                          </tr>
+                                          {% endfor %}
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+             </div>
+         </div>
+   </div>
+ </div>
+{% endblock content %}
+    

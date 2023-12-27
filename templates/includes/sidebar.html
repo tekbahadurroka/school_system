@@ -1,0 +1,128 @@
+<div class="sidebar" id="sidebar">
+   <div class="sidebar-inner slimscroll">
+      <div id="sidebar-menu" class="sidebar-menu">
+         {% if user.user_type == '1' %}
+         <ul>
+            <li class="menu-title">
+               <span>Main Menu</span>
+            </li>
+            <li>
+               <a href="{% url 'hod_home' %}"><i class="fas fa-baseball-ball"></i> <span>Dashboard</span></a>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_student' %}">Add Student</a></li>
+                  <li><a href="{% url 'view_student' %}">Views Student</a></li>
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staffs</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_staff' %}">Add Staff</a></li>
+                  <li><a href="{% url 'view_staff' %}">View Staff</a></li>
+                  
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fa fa-graduation-cap"></i> <span> Courses</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_course' %}">Add Course</a></li>
+                  <li><a href="{% url 'view_course' %}">View Course</a></li>
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_subject' %}">Add Subject</a></li>
+                  <li><a href="{% url 'view_subject' %}">View Subject</a></li>
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Session</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_session' %}">Add Session</a></li>
+                  <li><a href="{% url 'view_session' %}">View Session</a></li>
+                  
+               </ul>
+            </li>
+            <li>
+               <a href="{% url 'loan_veiew' %}"><i class="fas fa-landmark"></i> <span>Loan Approved</span></a>
+            </li>
+            <li>
+               <a href="{% url 'staff_notification' %}"><i class="fas fa-bell"></i> <span>Send Staff Notification</span></a>
+            </li>
+            <li>
+               <a href="fees.html"><i class="fas fa-bell"></i> <span>Send Student Notification</span></a>
+            </li>
+            <li>
+               <a href="fees.html"><i class="fas fa-comment"></i> <span>Feedback</span></a>
+            </li>
+            <li>
+               <a href="{% url 'staff_leave_veiew' %}"><i class="fas fa-envelope"></i> <span>Staff Leave</span></a>
+            </li>
+            <li>
+               <a href="holiday.html"><i class="fas fa-envelope"></i> <span>Student Leave</span></a>
+            </li>
+            <li class="menu-title">
+
+               <span>Management</span>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="fees-collections.html">Fees Collection</a></li>
+                  <li><a href="expenses.html">Expenses</a></li>
+                  <li><a href="salary.html">Salary</a></li>
+                  <li><a href="add-fees-collection.html">Add Fees</a></li>
+                  <li><a href="add-expenses.html">Add Expenses</a></li>
+                  <li><a href="add-salary.html">Add Salary</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="{% url 'Logout' %}"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+            </li>
+         </ul>
+         {% elif user.user_type == '2' %}
+         <ul>
+         <li class="menu-title">
+            <span>Main Menu</span>
+         </li>
+         <li>
+            <a href="{% url 'staff_home' %}"><i class="fas fa-baseball-ball"></i> <span>Dashboard</span></a>
+         </li>
+         <li>
+            <a href="{% url 'loan_demand' %}"><i class="fas fa-landmark"></i> <span>Loan Request</span></a>
+         </li>
+         <li>
+            <a href="{% url 'loan_status' %}"><i class="fas fa-landmark"></i> <span>Loan Approved</span></a>
+         </li>
+         <li>
+            <a href="#"><i class="fas fa-calendar-alt"></i> <span>Take Attandence</span></a>
+         </li>
+         <li>
+            <a href="#"><i class="fas fa-calendar-alt"></i> <span>View/Update Attandence</span></a>
+         </li>
+         <li>
+            <a href="#"><i class="fas fa-poll-h"></i> <span>Add Result</span></a>
+         </li>
+         <li>
+            <a href="{% url 'leave_staff' %}"><i class="fas fa-envelope"></i> <span>Leave Request</span></a>
+       
+         <li>
+            <a href="#"><i class="fas fa-comment"></i> <span>Send Feedback</span></a>
+         </li>
+         <li>
+            <a href="{% url 'notification' %}"><i class="fas fa-bell"></i> <span>Notifications</span></a>
+         </li>
+         <li>
+            <a href="{% url 'Logout' %}"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+         </li>
+         </ul>
+         {% else %}
+
+
+         {% endif %}
+      </div>
+   </div>
+</div>

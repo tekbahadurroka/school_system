@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Loan Views</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Loan Views</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center mb-0 datatable">
+                     
+                     {% include 'includes/messages.html' %}
+                      <thead>
+                         <tr>
+                            <th>Loan ID</th>
+                            <th>Member Name</th>
+                            <th>Propose</th>
+                            <th>Loan Amount</th>
+                            <th>Document</th>
+                            
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        
+                        {% for loan in loan_file %}                          
+                         <tr>
+                            <td>{{loan.id}}</td>
+                            <td>{{loan.name}}</td>
+                            <td>{{loan.propose}}</td>
+                            <td>{{loan.loan_amount}}</td>
+                            <td><a href="{{loan.document.url}}" download class="btn btn-info">Document View</a></td>
+
+                            <td class="text-right">
+                               <div class="actions">
+                                
+                                {% if loan.status == 0 %}
+                                <a href="{% url 'loan_approve' loan.id %}" class="btn btn-success">Approve</a>
+                                <a href="{% url 'loan_reject' loan.id %}" class="btn btn-danger">Reject</a>  
+                                {% elif loan.status == 1 %}
+                                <button class="btn btn-success" disabled="disabled">Approved</button>
+                                {% else %}
+                                <button class="btn btn-danger" disabled="disabled">Rejected</button> 
+                                {% endif %}
+                                    
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+    
+{% endblock content %}
